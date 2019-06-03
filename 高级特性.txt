@@ -1,0 +1,68 @@
+切片
+已知 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+如果说是取前三个元素的话，我们要怎么操作呢？
+如果是c或者java写一个循环就可以了。但是python提供了更加简便的方法——切片
+>>> L[0:3]
+['Michael', 'Sarah', 'Tracy']
+也可以
+>>> L[:3]
+['Michael', 'Sarah', 'Tracy']
+
+之前我们谈论过，python的list列表里面的元素是镜像的，存在负参数
+>>> L[-2:]
+['Bob', 'Jack']
+>>> L[-2:-1]
+['Bob']
+
+甚至什么都不写，只写[:]就可以原样复制一个list：（全部元素）
+tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以用切片操作，
+只是操作的结果仍是tuple
+
+字符串'xxx'也可以看成是一种list，每个元素就是一个字符。因此，
+字符串也可以用切片操作，只是操作结果仍是字符串：
+>>> 'ABCDEFG'[:3]
+'ABC'
+>>> 'ABCDEFG'[::2]
+'ACEG'
+
+
+
+
+迭代
+如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
+这种遍历我们称为迭代（Iteration）。在Python中，迭代是通过for ... in来完成的，
+而很多语言比如C语言，迭代list是通过下标完成的
+
+list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，
+只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> for key in d:
+...     print(key)
+...
+a
+c
+b
+
+
+默认情况下，dict迭代的是key。如果要迭代value，可以用for value in d.values()，
+如果要同时迭代key和value，可以用for k, v in d.items()。
+
+
+由于字符串也是可迭代对象，因此，也可以作用于for循环：
+
+>>> for ch in 'ABC':
+...     print(ch)
+...
+A
+B
+C
+
+for循环里，同时引用了两个变量，在Python里是很常见的，比如下面的代码：
+>>> for x, y in [(1, 1), (2, 4), (3, 9)]:
+...     print(x, y)
+...
+1 1
+2 4
+3 9
+
+
